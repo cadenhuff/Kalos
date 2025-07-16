@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("hi")
+    return render(request, "rent/landing_page.html")
 
 
 
@@ -13,3 +13,4 @@ def index(request):
 
 def search_results(request):
     return
+
