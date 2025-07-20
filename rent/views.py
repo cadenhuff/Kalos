@@ -10,6 +10,10 @@ def index(request):
 
 
 
+def all_listings(request):
+    return render(request, "rent/all_listings.html")
+
+
 
 def search_results(request):
     return
