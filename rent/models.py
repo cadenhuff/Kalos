@@ -20,6 +20,8 @@ class ArtworkPosting(models.Model):
 
 
 class RentalListing(models.Model):
+    def __str__(self):
+        return self.title
     title = models.CharField(max_length = 255)
     
 
@@ -54,7 +56,7 @@ class RentalListing(models.Model):
         help_text='Enter a detailed description here.'
     )
 
-    hourly_rate = models.DecimealField(
+    hourly_rate = models.DecimalField(
         max_digits = 10,
         decimal_places = 2,
         default = 0.0,

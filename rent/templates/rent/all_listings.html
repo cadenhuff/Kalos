@@ -3,6 +3,11 @@
 {%block body%}
 
 <h1>Hi</h1>
+{%for listing in listings%}
+    {{listing.title}}
 
+{% endfor %}
+
+<a href="{%url 'index'%}">Search</a>
 
 {%endblock%}

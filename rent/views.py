@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import RentalListing
 # Create your views here.
 
 
@@ -11,7 +12,9 @@ def index(request):
 
 
 def all_listings(request):
-    return render(request, "rent/all_listings.html")
+    listings = RentalListing.objects.all()
+    return render(request, "rent/all_listings.html",
+                  {"listings":listings})
 
 
 
