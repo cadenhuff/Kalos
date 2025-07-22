@@ -2,8 +2,13 @@
 
 
 {%block body%}
+
 <header>
-    <li><a href="{%url 'accounts:login'%}">login</a></li>
+    {% if user.is_authenticated %}
+        <li><a href="{%url 'accounts:logout'%}">Logout</a></li>
+    {% else %}
+        <li><a href="{%url 'accounts:login'%}">login</a></li>
+    {% endif %}
 </header>
     
 

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 
@@ -17,6 +17,9 @@ def register(request):
         form = RegisterForm()
     return render(request, 'accounts/register.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
+    return redirect('rent:index')
 
 def login_view(request):
     if request.method == "POST":
