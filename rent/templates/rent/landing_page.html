@@ -17,5 +17,11 @@
     
     <a href="{%url 'rent:all_listings'%}">All Spaces</a>
 
+    {% if user.is_authenticated %}
+    <a href="{%url 'rent:create_listing'%}">Add listing </a>
+    {%else%}
+    <p>Log in to add rental</p>
+    {%endif%}
 </div>
+
 {%endblock%}
