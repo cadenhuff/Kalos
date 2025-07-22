@@ -3,7 +3,7 @@
 
 {%block body%}
 <header>
-    
+    <li><a href="{%url 'accounts:login'%}">login</a></li>
 </header>
     
 
@@ -15,7 +15,7 @@
 
     <input   type="text">
     
-    <a href="{%url 'all_listings'%}">All Spaces</a>
+    <a href="{%url 'rent:all_listings'%}">All Spaces</a>
 
 </div>
 {%endblock%}
