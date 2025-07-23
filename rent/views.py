@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import RentalListing
 from .forms import RentalListingForm
@@ -8,10 +8,16 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
-    
-    return render(request, "rent/landing_page.html")
+    #if request.method == ""
+    listings = RentalListing.objects.all()
+    return render(request, "rent/landing_page.html",
+                  {"listings":listings})
 
 
+def listing_page(request, listing_id):
+    listing = get_object_or_404(RentalListing, id = listing_id)
+
+    return render(request, "rent/listing_page.html",{"listing": listing})
 
 
 def all_listings(request):

@@ -27,6 +27,16 @@
     {%else%}
     <p>Log in to add rental</p>
     {%endif%}
+
+    <ul>
+        {% for listing in listings %}
+        <li>
+            <a href="{% url 'rent:listing_page' listing.id%}">
+                {{ listing.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 
 {%endblock%}
