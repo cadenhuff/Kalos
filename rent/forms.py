@@ -7,3 +7,6 @@ class RentalListingForm(forms.ModelForm):
         model = RentalListing
 
         fields = ['title', 'category', 'location', 'description', 'hourly_rate']
+
+
+        
