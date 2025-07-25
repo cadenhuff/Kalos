@@ -66,3 +66,11 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f"{self.reserver.username} -> {self.listing.title} ({self.start_date} to {self.end_date})"
+
+
+class Review(models.Model):
+    reviewer = models.ForeignKey(User, on_delete = models.CASCADE, related_name = "reviews")
+    listing = models.ForeignKey(RentalListing, on_delete = models.CASCADE, related_name = "reviews")
+    created_date = models.DateField(auto_now_add=True)
+    review = models.TextField()
+

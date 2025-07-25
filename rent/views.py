@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import RentalListing
+from .models import RentalListing, Review
 from .forms import RentalListingForm, ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -18,8 +18,8 @@ def index(request):
 
 def listing_page(request, listing_id):
     listing = get_object_or_404(RentalListing, id = listing_id)
-
-    return render(request, "rent/listing_page.html",{"listing": listing})
+    reviews = Review.objects.filter(listing = listing)
+    return render(request, "rent/listing_page.html",{"listing": listing, "reviews": reviews})
 
 
 def all_listings(request):

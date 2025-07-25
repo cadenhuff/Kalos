@@ -8,6 +8,10 @@
 
 
 <a href="{%url 'rent:make_reservation' listing.id %}">Make Rez</a>
+{% for review in reviews %}
+    {{review.review}}
 
+
+{%endfor%}
 
 {%endblock%}
