@@ -1,0 +1,12 @@
+{%extends 'rent/layout.html'%}
+
+
+
+{%block body%}
+<h2>Reserve {{ listing.title }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Reserve</button>
+</form>
+{%endblock%}
